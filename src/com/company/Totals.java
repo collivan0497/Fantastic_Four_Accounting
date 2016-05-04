@@ -3,12 +3,7 @@ package com.company;
 /**
  * Created by csullivan on 5/4/16.
  */
-public class Weekly {
+public class Totals {
 
-    public void questions(){
-
-
-
-    }
 
 }
