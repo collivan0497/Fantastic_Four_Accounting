@@ -6,10 +6,14 @@ public class Main {
 
     public static void main(String[] args) {
 
-        double weeklyHours[10];
-        double weeklySalary[10];
-        double weeklyGross[10];
-        char quit;
+        double[] weeklyHours = new double[10];
+        double[] weeklySalary = new double[10];
+        double[] weeklyGross = new double[10];
+        double[] weeklySavings = new double[10];
+        double[] weeklyNet = new double[10];
+        double[] weeklyExpenses = new double[10];
+
+        char repeat = 0;
 
         Scanner input = new Scanner(System.in);
 
@@ -31,19 +35,32 @@ public class Main {
 
         do{
             for(int i=0; i<10; i++){
-                System.out.println("How many hours are you working during Week "+(i+1)+"? Enter your answer in decimal format." +
-                        "\n For example, if you worked 10.25 hours, enter '10.25'");
+                System.out.println("(Q1/4) How many hours are you working during Week "+(i+1)+"? Enter your answer in decimal format." +
+                        "\nFor example, if you worked 10.25 hours, enter '10.25'");
                 weeklyHours[i] = input.nextDouble();
 
-                System.out.println("How much money per hour did you make during Week "+(i+1)+"? Enter your answer in decimal format." +
-                        "\n For example, if you make $8.25/hr this week, enter '8.25'");
+                System.out.println("(Q2/4) How much money per hour did you make during Week "+(i+1)+"? Enter your answer in decimal format." +
+                        "\nFor example, if you make $8.25/hr this week, enter '8.25'");
                 weeklySalary[i] = input.nextDouble();
 
                 weeklyGross[i] = (weeklyHours[i] * weeklySalary[i]);
+                weeklyNet[i] = weeklyGross[i];
 
+                System.out.println("(Q3/4) What percent of your income during Week "+(i+1)+"would you like to save? Enter your answer in decimal format." +
+                        "\nFor example, if you want to save 15%, enter '0.15'");
+                weeklySavings[i] = (weeklyGross[i]*input.nextDouble());
+                weeklyNet[i] = (weeklyGross[i]-weeklySavings[i]);
+
+                System.out.println("(Q4/4) How much money during Week "+(i+1)+"have you spent on other expenses? Enter your answer in decimal format." +
+                        "\nFor example, if you spent to save $100.00, enter '100.00'");
+                weeklyExpenses[i] = input.nextDouble();
+                weeklyNet[i]=-weeklyExpenses[i];
+
+                i++;
 
             }
-        } while (quit!= 'q' && quit!='Q');
+        } while (repeat != 'Q' && repeat != 'q');
+
 
 
 
