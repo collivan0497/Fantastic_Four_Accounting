@@ -30,42 +30,32 @@ public class Main {
 
         System.out.println("Your identifier is " + a + randomNumber + lastName2.substring(0, 3));
 
-        System.out.println("This program will be able to take 10 weeks of your income and" +
-                "allow you to see how much you are actually taking home each week.");
+        System.out.println("This program will be able to take 1 month (4 weeks) of your income and" +
+                "allow you to see how much you are actually taking home at the end of the month.");
 
-        do{
-            for(int i=0; i<10; i++){
-                System.out.println("(Q1/4) How many hours are you working during Week "+(i+1)+"? Enter your answer in decimal format." +
-                        "\nFor example, if you worked 10.25 hours, enter '10.25'");
-                weeklyHours[i] = input.nextDouble();
+        for (int i = 0; i < 5; i++) {
+            System.out.println("(Q1/4) How many hours are you working during Week " + (i + 1) + "? Enter your answer in decimal format." +
+                    "\nFor example, if you worked 10.25 hours, enter '10.25'");
+            weeklyHours[i] = input.nextDouble();
 
-                System.out.println("(Q2/4) How much money per hour did you make during Week "+(i+1)+"? Enter your answer in decimal format." +
-                        "\nFor example, if you make $8.25/hr this week, enter '8.25'");
-                weeklySalary[i] = input.nextDouble();
+            System.out.println("(Q2/4) How much money per hour did you make during Week " + (i + 1) + "? Enter your answer in decimal format." +
+                    "\nFor example, if you make $8.25/hr this week, enter '8.25'");
+            weeklySalary[i] = input.nextDouble();
 
-                weeklyGross[i] = (weeklyHours[i] * weeklySalary[i]);
-                weeklyNet[i] = weeklyGross[i];
+            weeklyGross[i] = (weeklyHours[i] * weeklySalary[i]);
+            weeklyNet[i] = weeklyGross[i];
 
-                System.out.println("(Q3/4) What percent of your income during Week "+(i+1)+"would you like to save? Enter your answer in decimal format." +
-                        "\nFor example, if you want to save 15%, enter '0.15'");
-                weeklySavings[i] = (weeklyGross[i]*input.nextDouble());
-                weeklyNet[i] = (weeklyGross[i]-weeklySavings[i]);
+            System.out.println("(Q3/4) What percent of your income during Week " + (i + 1) + "would you like to save? Enter your answer in decimal format." +
+                    "\nFor example, if you want to save 15%, enter '0.15'");
+            weeklySavings[i] = (weeklyGross[i] * input.nextDouble());
+            weeklyNet[i] = (weeklyGross[i] - weeklySavings[i]);
 
-                System.out.println("(Q4/4) How much money during Week "+(i+1)+"have you spent on other expenses? Enter your answer in decimal format." +
-                        "\nFor example, if you spent to save $100.00, enter '100.00'");
-                weeklyExpenses[i] = input.nextDouble();
-                weeklyNet[i]=-weeklyExpenses[i];
+            System.out.println("(Q4/4) How much money during Week " + (i + 1) + "have you spent on other expenses? Enter your answer in decimal format." +
+                    "\nFor example, if you spent to save $100.00, enter '100.00'");
+            weeklyExpenses[i] = input.nextDouble();
+            weeklyNet[i] = -weeklyExpenses[i];
 
-                i++;
+        }
 
-            }
-        } while (repeat != 'Q' && repeat != 'q');
-
-
-
-
-
-
-        // write your code here
     }
 }
