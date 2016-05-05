@@ -22,19 +22,17 @@ public class Questions extends Bank
         char quit;
 
         NumberFormat currFormat = NumberFormat.getCurrencyInstance();
-
-
         Scanner input = new Scanner(System.in);
+
+        Password myPassword = new Password();   // Create an myPassword object for Password Class
+        myPassword.callPassword();  // Calls the callPassword  method from Password Class
 
         // Extends Bank
         System.out.println(account("PNC Bank"));
         System.out.println(account(11100088));
         System.out.println(account(123.456));
 
-        Password myPassword = new Password();   // Create an myPassword object for Password Class
-        myPassword.callPassword();  // Calls the callPassword  method from Password Class
-
-        System.out.println("This program will be able to take 1 month (4 weeks) of your income and " +
+        System.out.println("\nThis program will be able to take 1 month (4 weeks) of your income and " +
                 "allow you to see how much you are actually taking home at the end of the month. \n");
         // "Kyong Kang" added doWhile loop so the program keep repeating until n/N is pressed
         do
