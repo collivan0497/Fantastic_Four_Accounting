@@ -13,6 +13,8 @@ public class Main {
         double[] weeklyNet = new double[10];
         double[] weeklyExpenses = new double[10];
 
+        Bank bank1 = new Bank();
+
         char repeat = 0;
 
         Scanner input = new Scanner(System.in);
@@ -25,12 +27,16 @@ public class Main {
         String lastName = input.nextLine();
         String lastName2 = lastName.toLowerCase();
 
+        System.out.println(bank1.account("PNC Bank"));
+        System.out.println(bank1.account(11100088));
+        System.out.println(bank1.account(123.456));
+
         int randomNumber = 10 + (int) (Math.random() * 90);
         char a = firstName2.charAt(firstName2.length() - 1);
 
         System.out.println("Your identifier is " + a + randomNumber + lastName2.substring(0, 3));
 
-        System.out.println("This program will be able to take 1 month (4 weeks) of your income and" +
+        System.out.println("This program will be able to take 1 month (4 weeks) of your income and " +
                 "allow you to see how much you are actually taking home at the end of the month.");
 
         for (int i = 0; i < 5; i++) {
@@ -45,7 +51,7 @@ public class Main {
             weeklyGross[i] = (weeklyHours[i] * weeklySalary[i]);
             weeklyNet[i] = weeklyGross[i];
 
-            System.out.println("(Q3/4) What percent of your income during Week " + (i + 1) + "would you like to save? Enter your answer in decimal format." +
+            System.out.println("(Q3/4) What percent of your income during Week " + (i + 1) + " would you like to save? Enter your answer in decimal format." +
                     "\nFor example, if you want to save 15%, enter '0.15'");
             weeklySavings[i] = (weeklyGross[i] * input.nextDouble());
             weeklyNet[i] = (weeklyGross[i] - weeklySavings[i]);
