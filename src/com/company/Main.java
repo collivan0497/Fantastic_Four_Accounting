@@ -53,6 +53,22 @@ public class Main {
 
         }
 
+        double grossTOTAL = 0;
+        double grossSAVING = 0;
+        double grossNET = 0;
+
+        for( int i =0; i < weeklyGross.length; i++){
+            grossTOTAL =+ weeklyGross[i];
+        }
+        for(int i = 0; i < weeklySavings.length; i++){
+            grossSAVING =+ weeklySavings[i];
+        }
+        for(int i = 0; i < weeklyNet.length; i++){
+            grossNET =+ weeklyNet[i];
+        }
+
+        System.out.printf("This month's gross is $%f\nThis month you saved$ %f\nThis month you netted $%f", grossTOTAL, grossSAVING, grossNET);
+
 
     }
 
