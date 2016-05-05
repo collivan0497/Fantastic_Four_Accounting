@@ -19,22 +19,12 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Hello welcome to Java accounting!\nPlease enter your first name:");
-        String firstName = input.nextLine();
-        String firstName2 = firstName.toUpperCase();
-
-        System.out.println("Please eneter your last name:");
-        String lastName = input.nextLine();
-        String lastName2 = lastName.toLowerCase();
-
         System.out.println(bank1.account("PNC Bank"));
         System.out.println(bank1.account(11100088));
         System.out.println(bank1.account(123.456));
 
-        int randomNumber = 10 + (int) (Math.random() * 90);
-        char a = firstName2.charAt(firstName2.length() - 1);
-
-        System.out.println("Your identifier is " + a + randomNumber + lastName2.substring(0, 3));
+        Password myPassword = new Password();   // Create an myPassword object for Password Class
+        myPassword.callPassword();  // Calls the callPassword  method from Password Class
 
         System.out.println("This program will be able to take 1 month (4 weeks) of your income and " +
                 "allow you to see how much you are actually taking home at the end of the month.");
