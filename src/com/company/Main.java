@@ -1,22 +1,30 @@
 package com.company;
 
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class Main {
 
-    private static double[] weeklyHours = new double[10];
-    private static double[] weeklySalary = new double[10];
-    private static double[] weeklyGross = new double[10];
-    private static double[] weeklySavings = new double[10];
-    private static double[] weeklyNet = new double[10];
-    private static double[] weeklyExpenses = new double[10];
+
+    private static double[] weeklyHours = new double[5];
+    private static double[] weeklySalary = new double[5];
+    private static double[] weeklyGross = new double[5];
+    private static double[] weeklySavings = new double[5];
+    private static double[] weeklyNet = new double[5];
+    private static double[] weeklyExpenses = new double[50];
 
     public static void main(String[] args) {
 
+        double grossTOTAL = 0;
+        double grossSAVING = 0;
+        double grossNET = 0;
 
         Bank bank1 = new Bank();
 
         char quit = 0;
+
+        NumberFormat currFormat = NumberFormat.getCurrencyInstance();
+
 
         Scanner input = new Scanner(System.in);
 
@@ -27,42 +35,44 @@ public class Main {
         Password myPassword = new Password();   // Create an myPassword object for Password Class
         myPassword.callPassword();  // Calls the callPassword  method from Password Class
 
+        System.out.println("This program will be able to take 1 month (4 weeks) of your income and " +
+                "allow you to see how much you are actually taking home at the end of the month. \n");
+
         questions();
 
-        System.out.println("This program will be able to take 1 month (4 weeks) of your income and " +
-                "allow you to see how much you are actually taking home at the end of the month.");
 
 
-        double grossTOTAL = 0;
-        double grossSAVING = 0;
-        double grossNET = 0;
+
 
         for( int i =0; i < weeklyGross.length; i++){
-            grossTOTAL =+ weeklyGross[i];
+            grossTOTAL += weeklyGross[i];
         }
         for(int i = 0; i < weeklySavings.length; i++){
-            grossSAVING =+ weeklySavings[i];
+            grossSAVING += weeklySavings[i];
         }
         for(int i = 0; i < weeklyNet.length; i++){
-            grossNET =+ weeklyNet[i];
+            grossNET += weeklyNet[i];
         }
+        System.out.println("This month's gross is " + currFormat.format(grossTOTAL) + "\n This month you saved " +
+                currFormat.format(grossSAVING) + "\n This month you netted " + currFormat.format(grossNET));
 
-        System.out.printf("This month's gross is $%f\nThis month you saved$ %f\nThis month you netted $%f", grossTOTAL, grossSAVING, grossNET);
-        System.out.print("Would you like to enter another month's information?\nIf yes, press 'y' or 'Y'. If no, press 'n' or 'N'");
+
+        System.out.println();
+        System.out.println(" Would you like to enter another month's information?\n If yes, press 'y' or 'Y'. If no, press 'n' or 'N'");
         String quit1 = input.nextLine();
         quit = quit1.charAt(0);
 
-        if(quit=='y' || quit=='Y'){
+        if(quit=='n' || quit=='N'){
             System.out.println("Thanks for using this program. Goodbye");
         } else {
             questions();
-    }
+        }
 
 
     }
 
 
-    static void questions(){
+    public static void questions(){
         for (int i = 0; i < 4; i++) {
 
             Scanner input1 = new Scanner(System.in);
@@ -86,9 +96,12 @@ public class Main {
             System.out.println("(Q4/4) How much money during Week " + (i + 1) + " have you spent on other expenses? Enter your answer in decimal format." +
                     "\nFor example, if you spent to save $100.00, enter '100.00'");
             weeklyExpenses[i] = input1.nextDouble();
-            weeklyNet[i] = -weeklyExpenses[i];
+            weeklyNet[i] -= weeklyExpenses[i];
+
+
 
         }
+
     }
 
 
