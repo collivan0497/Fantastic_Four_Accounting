@@ -2,16 +2,15 @@ package com.company;
 
 import java.util.Scanner;
 
-/**
- * Created by csullivan on 5/5/16.
- */
-public class Password {
-
+public class Password extends Bank
+{
     public static void callPassword()
     {
         Scanner input = new Scanner(System.in);
-
-        System.out.println("\nHello welcome to Java accounting!\nPlease enter your first name:");
+        System.out.println("Hello welcome to Java accounting!");
+        //Extends
+        System.out.println(passWord("\nWe are going to create your password"));
+        System.out.println("\nPlease enter your first name:");
         String firstName = input.nextLine();
         String firstName2 = firstName.toUpperCase();
 
@@ -24,5 +23,4 @@ public class Password {
 
         System.out.println("Your identifier is " + a + randomNumber + lastName2.substring(0, 3));
     }
-
 }

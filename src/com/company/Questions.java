@@ -3,7 +3,7 @@ package com.company;
 import java.text.NumberFormat;
 import java.util.Scanner;
 
-public class Questions
+public class Questions extends Bank
 {
     private static double[] weeklyHours = new double[5];
     private static double[] weeklySalary = new double[5];
@@ -19,7 +19,6 @@ public class Questions
         double grossSAVING = 0;
         double grossNET = 0;
 
-        Bank bank1 = new Bank();
         char quit;
 
         NumberFormat currFormat = NumberFormat.getCurrencyInstance();
@@ -27,9 +26,10 @@ public class Questions
 
         Scanner input = new Scanner(System.in);
 
-        System.out.println(bank1.account("PNC Bank"));
-        System.out.println(bank1.account(11100088));
-        System.out.println(bank1.account(123.456));
+        // Extends Bank
+        System.out.println(account("PNC Bank"));
+        System.out.println(account(11100088));
+        System.out.println(account(123.456));
 
         Password myPassword = new Password();   // Create an myPassword object for Password Class
         myPassword.callPassword();  // Calls the callPassword  method from Password Class
