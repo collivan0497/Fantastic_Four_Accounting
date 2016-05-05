@@ -65,12 +65,17 @@ public class Questions extends Bank
 
             Scanner input1 = new Scanner(System.in);
 
+            System.out.println("If a non-number is entered, the program will wait until a valid numerical input is presented");
+            System.out.println();
+
             System.out.println("(Q1/4) How many hours are you working during Week " + (i + 1) + "? Enter your answer in decimal format." +
                     "\nFor example, if you worked 10.25 hours, enter '10.25'");
+            while (!input1.hasNextDouble()) input1.next();
             weeklyHours[i] = input1.nextDouble();
 
             System.out.println("(Q2/4) How much money per hour did you make during Week " + (i + 1) + "? Enter your answer in decimal format." +
                     "\nFor example, if you make $8.25/hr this week, enter '8.25'");
+            while (!input1.hasNextDouble()) input1.next();
             weeklySalary[i] = input1.nextDouble();
 
             weeklyGross[i] = (weeklyHours[i] * weeklySalary[i]);
@@ -78,11 +83,13 @@ public class Questions extends Bank
 
             System.out.println("(Q3/4) What percent of your income during Week " + (i + 1) + " would you like to save? Enter your answer in decimal format." +
                     "\nFor example, if you want to save 15%, enter '0.15'");
+            while (!input1.hasNextDouble()) input1.next();
             weeklySavings[i] = (weeklyGross[i] * input1.nextDouble());
             weeklyNet[i] = (weeklyGross[i] - weeklySavings[i]);
 
             System.out.println("(Q4/4) How much money during Week " + (i + 1) + " have you spent on other expenses? Enter your answer in decimal format." +
                     "\nFor example, if you spent to save $100.00, enter '100.00'");
+            while (!input1.hasNextDouble()) input1.next();
             weeklyExpenses[i] = input1.nextDouble();
             weeklyNet[i] -= weeklyExpenses[i];
         }
