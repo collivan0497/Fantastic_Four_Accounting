@@ -39,7 +39,7 @@ public class Main {
         System.out.println("This program will be able to take 1 month (4 weeks) of your income and " +
                 "allow you to see how much you are actually taking home at the end of the month.");
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 4; i++) {
             System.out.println("(Q1/4) How many hours are you working during Week " + (i + 1) + "? Enter your answer in decimal format." +
                     "\nFor example, if you worked 10.25 hours, enter '10.25'");
             weeklyHours[i] = input.nextDouble();
@@ -56,12 +56,15 @@ public class Main {
             weeklySavings[i] = (weeklyGross[i] * input.nextDouble());
             weeklyNet[i] = (weeklyGross[i] - weeklySavings[i]);
 
-            System.out.println("(Q4/4) How much money during Week " + (i + 1) + "have you spent on other expenses? Enter your answer in decimal format." +
+            System.out.println("(Q4/4) How much money during Week " + (i + 1) + " have you spent on other expenses? Enter your answer in decimal format." +
                     "\nFor example, if you spent to save $100.00, enter '100.00'");
             weeklyExpenses[i] = input.nextDouble();
             weeklyNet[i] = -weeklyExpenses[i];
 
         }
 
+
     }
+
+
 }
